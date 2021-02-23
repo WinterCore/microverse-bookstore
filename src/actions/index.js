@@ -1,5 +1,4 @@
 import * as books from './books';
+import * as filter from './filter';
 
-/* eslint-disable import/prefer-default-export */
-export { books };
-/* eslint-enable import/prefer-default-export */
+export { books, filter };
