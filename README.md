@@ -1,11 +1,12 @@
 # Bookstore
 
+![Screenshot](screenshot.png)
+
 # Table of Contents
 - [Bookstore](#bookstore)
 - [Table of Contents](#table-of-contents)
   - [Built With](#built-with)
   - [How to run locally](#how-to-run-locally)
-  - [Running tests](#running-tests)
   - [Live Demo](#live-demo)
   - [Authors](#authors)
   - [🤝 Contributing](#-contributing)
@@ -34,11 +35,6 @@
 - Run `npm start`
 - Enjoy
 
-## Running tests
-
-- Use `npm run test -- --verbose --watchAll=false` to run the unit tests with detailed output.
-- Use `npm run test -- --coverage --watchAll=false` to run the unit tests and generate code coverage statistics.
- 
 ## Live Demo 
 
 [Live Demo Link](https://wintercore-bookstore.herokuapp.com)
