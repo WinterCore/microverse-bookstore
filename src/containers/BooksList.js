@@ -20,13 +20,15 @@ function BooksList({
     <section className={classnames(util.w100, util.section)}>
       <CategoryFilter filter={filter} handleFilterChange={changeFilter} />
       {
-        books.map(book => (
-          <Book
-            key={book.id}
-            book={book}
-            handleRemoveBook={() => removeBook(book)}
-          />
-        ))
+        books.length > 0
+          ? books.map(book => (
+            <Book
+              key={book.id}
+              book={book}
+              handleRemoveBook={() => removeBook(book)}
+            />
+          ))
+          : <h3 style={{ textAlign: 'center' }}>No books were found!</h3>
       }
     </section>
   );
