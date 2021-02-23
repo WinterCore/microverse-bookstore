@@ -1,0 +1,15 @@
+.flex { display: flex; }
+.flex.row { flex-direction: row; }
+.flex.column { flex-direction: column; }
+.flex.justifyCenter { justify-content: center; }
+.flex.justifyStart { justify-content: flex-start; }
+.flex.justifyEnd { justify-content: flex-end; }
+.flex.justifyBetween { justify-content: space-between; }
+.flex.alignCenter { align-items: center; }
+.flex.alignStart { align-items: flex-start; }
+.flex.alignEnd { align-items: flex-end; }
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
