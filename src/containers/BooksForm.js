@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -6,6 +7,9 @@ import { connect } from 'react-redux';
 import { books } from '../actions';
 
 import { categories } from '../data';
+
+import style from './BooksForm.module.css';
+import util from '../utils.module.css';
 
 function BooksForm({ createBook }) {
   const [formData, setFormData] = React.useState({ title: '', category: '' });
@@ -21,33 +25,39 @@ function BooksForm({ createBook }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <fieldset>
-        <legend>Add book</legend>
-        <div>
-          <label htmlFor="title">
-            Title&nbsp;
-            <input id="title" type="text" name="title" required onChange={handleChange} value={formData.title} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="category">
-            Category&nbsp;
+    <section className={classnames(util.w100, util.section)}>
+      <form onSubmit={handleSubmit} className={classnames(util.w100, style.form)}>
+        <h2>Add new book</h2>
+        <div className={classnames(style.formInner, util.flex)}>
+          <div className={style.inputGroup}>
+            <input
+              id="title"
+              type="text"
+              name="title"
+              placeholder="Title"
+              className={util.input}
+              onChange={handleChange}
+              value={formData.title}
+              required
+            />
+          </div>
+          <div className={style.inputGroup}>
             <select
               id="category"
               name="category"
+              className={util.select}
               onChange={handleChange}
               value={formData.category}
               required
             >
-              <option value="" disabled>Select your option</option>
+              <option value="" disabled>Category</option>
               { categories.map(c => <option key={c} value={c}>{c}</option>) }
             </select>
-          </label>
+          </div>
+          <button className={util.button} type="submit">Save</button>
         </div>
-        <button type="submit">Save</button>
-      </fieldset>
-    </form>
+      </form>
+    </section>
   );
 }
 

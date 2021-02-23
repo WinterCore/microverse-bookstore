@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -6,28 +7,21 @@ import { books } from '../actions';
 
 import Book from '../components/Book';
 
+import util from '../utils.module.css';
+
 function BooksList({ books, removeBook }) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          books.map(book => (
-            <Book
-              key={book.id}
-              book={book}
-              handleRemoveBook={() => removeBook(book)}
-            />
-          ))
-        }
-      </tbody>
-    </table>
+    <section className={classnames(util.w100, util.section)}>
+      {
+        books.map(book => (
+          <Book
+            key={book.id}
+            book={book}
+            handleRemoveBook={() => removeBook(book)}
+          />
+        ))
+      }
+    </section>
   );
 }
 
