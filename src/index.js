@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import rootReducer from './reducers';
+
+const store = createStore(rootReducer);
+
+const WrappedApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WrappedApp />
   </React.StrictMode>,
   document.getElementById('root'),
 );
