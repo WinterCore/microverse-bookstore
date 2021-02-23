@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -7,6 +8,8 @@ import { books, filter } from '../actions';
 import Book from '../components/Book';
 import CategoryFilter from '../components/CategoryFilter';
 
+import util from '../utils.module.css';
+
 function BooksList({
   books,
   removeBook,
@@ -14,29 +17,20 @@ function BooksList({
   changeFilter,
 }) {
   return (
-    <>
-      <CategoryFilter handleFilterChange={changeFilter} filter={filter} />
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          { books.length
-            ? books.map(book => (
-              <Book
-                key={book.id}
-                book={book}
-                handleRemoveBook={() => removeBook(book)}
-              />
-            ))
-            : <tr><td colSpan={3}>No books were found</td></tr> }
-        </tbody>
-      </table>
-    </>
+    <section className={classnames(util.w100, util.section)}>
+      <CategoryFilter filter={filter} handleFilterChange={changeFilter} />
+      {
+        books.length > 0
+          ? books.map(book => (
+            <Book
+              key={book.id}
+              book={book}
+              handleRemoveBook={() => removeBook(book)}
+            />
+          ))
+          : <h3 style={{ textAlign: 'center' }}>No books were found!</h3>
+      }
+    </section>
   );
 }
 
