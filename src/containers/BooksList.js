@@ -21,10 +21,8 @@ function BooksList({ books, removeBook }) {
           books.map(book => (
             <Book
               key={book.id}
-              id={book.id}
-              title={book.title}
-              category={book.category}
-              handleRemoveBook={removeBook}
+              book={book}
+              handleRemoveBook={() => removeBook(book)}
             />
           ))
         }

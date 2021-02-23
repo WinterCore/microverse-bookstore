@@ -9,11 +9,15 @@ import rootReducer from './reducers';
 
 const store = createStore(rootReducer);
 
+const WrappedApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <WrappedApp />
   </React.StrictMode>,
   document.getElementById('root'),
 );

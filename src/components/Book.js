@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 
 function Book({
-  id,
-  title,
-  category,
+  book: {
+    id,
+    title,
+    category,
+  },
   handleRemoveBook,
 }) {
   return (
@@ -24,9 +26,11 @@ function Book({
 }
 
 Book.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    title: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
 };
 
