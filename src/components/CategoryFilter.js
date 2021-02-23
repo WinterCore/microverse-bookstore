@@ -5,7 +5,7 @@ import { categories } from '../data';
 function CategoryFilter({ handleFilterChange, filter }) {
   return (
     <select value={filter} onChange={({ target: { value } }) => handleFilterChange(value)}>
-      <option value="">All</option>
+      <option value="All">All</option>
       { categories.map(c => <option key={c} value={c}>{ c }</option>) }
     </select>
   );

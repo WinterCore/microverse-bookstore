@@ -52,7 +52,7 @@ BooksList.propTypes = {
 };
 
 const getFilteredBooks = ({ books, filter }) => {
-  if (filter === '') {
+  if (filter === 'All') {
     return books;
   }
   return books.filter(({ category }) => category === filter);
